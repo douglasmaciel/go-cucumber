@@ -2,9 +2,10 @@ module githum.com/douglasmaciel/go-cucumber
 
 go 1.19
 
+require github.com/cucumber/godog v0.12.6
+
 require (
 	github.com/cucumber/gherkin-go/v19 v19.0.3 // indirect
-	github.com/cucumber/godog v0.12.6 // indirect
 	github.com/cucumber/messages-go/v16 v16.0.1 // indirect
 	github.com/gofrs/uuid v4.2.0+incompatible // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
