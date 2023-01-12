@@ -9,12 +9,17 @@ import (
 
 type checkoutCtxKey struct{}
 
-func iCheckout(arg1 int, arg2 string) error {
-	return godog.ErrPending
+var bananaPrice = 0
+
+func iCheckout(ctx context.Context, itemCount int, itemName string) (context.Context, error) {
+	checkout := new(Checkout)
+	checkout.add(itemCount, bananaPrice)
+	return context.WithValue(ctx, checkoutCtxKey{}, checkout), nil
 }
 
 func thePriceOfAIsC(ctx context.Context, arg1 string, arg2 int) (context.Context, error) {
-	return context.WithValue(ctx, checkoutCtxKey{}, arg2), nil
+	bananaPrice := arg2
+	return context.WithValue(ctx, checkoutCtxKey{}, bananaPrice), nil
 }
 
 func theTotalPriceShouldBeC(arg1 int) error {
